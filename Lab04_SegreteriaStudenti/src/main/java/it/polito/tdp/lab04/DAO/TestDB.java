@@ -8,8 +8,13 @@ public class TestDB {
 		 * 	This is a main to check the DB connection
 		 */
 		
+		//verifico che tutti i corsi e studenti siano stati salvati correttamente dal db
 		CorsoDAO cdao = new CorsoDAO();
 		cdao.getTuttiICorsi();
+		
+		
+		StudenteDAO sdao = new StudenteDAO(); 
+		sdao.getTuttiGliStudenti();
 		
 		
 	}
