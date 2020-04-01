@@ -1,7 +1,13 @@
 package it.polito.tdp.lab04;
 
 import java.net.URL;
+import java.util.List;
 import java.util.ResourceBundle;
+
+import it.polito.tdp.lab04.model.Corso;
+import it.polito.tdp.lab04.model.Model;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -12,6 +18,10 @@ import javafx.scene.paint.Color;
 
 public class FXMLController {
 
+	private Model model; 
+	
+	private ObservableList<Corso> choiceBoxList = FXCollections.observableArrayList(model.getTuttiICorsi());
+	
     @FXML
     private ResourceBundle resources;
 
@@ -19,7 +29,7 @@ public class FXMLController {
     private URL location;
 
     @FXML
-    private ChoiceBox<?> choiceBox;
+    private ChoiceBox<Corso> choiceBox;
 
     @FXML
     private Button btnCercaIscritti;
@@ -47,6 +57,7 @@ public class FXMLController {
 
     @FXML
     private Button btnReset;
+    
 
     @FXML
     void doCercaCorsi(ActionEvent event) {
@@ -85,7 +96,12 @@ public class FXMLController {
         assert btnCercaCorsi != null : "fx:id=\"btnCercaCorsi\" was not injected: check your FXML file 'Scene.fxml'.";
         assert btnIscrivi != null : "fx:id=\"btnIscrivi\" was not injected: check your FXML file 'Scene.fxml'.";
         assert txtResult != null : "fx:id=\"txtResult\" was not injected: check your FXML file 'Scene.fxml'.";
-        assert btnReset != null : "fx:id=\"btnReset\" was not injected: check your FXML file 'Scene.fxml'.";
-
+       assert btnReset != null : "fx:id=\"btnReset\" was not injected: check your FXML file 'Scene.fxml'.";
+       
+       choiceBox.setItems(choiceBoxList);
+    }
+    
+    public void setModel(Model model) {
+    	this.model = model;
     }
 }
