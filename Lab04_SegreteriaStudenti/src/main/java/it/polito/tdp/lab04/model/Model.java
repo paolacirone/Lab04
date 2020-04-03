@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Map;
 import it.polito.tdp.lab04.DAO.CorsoDAO;
 import it.polito.tdp.lab04.DAO.StudenteDAO;
+import javafx.collections.ObservableList;
 
 public class Model {
 
@@ -16,7 +17,7 @@ public class Model {
 	}
 	
 	public List<Corso> getTuttiICorsi(){
-		return cdao.getTuttiICorsi(); 
+		return  cdao.getTuttiICorsi(); 
 	}
 	
 	public List<Studente> getStudentiIscrittiAlCorso(Corso corso){

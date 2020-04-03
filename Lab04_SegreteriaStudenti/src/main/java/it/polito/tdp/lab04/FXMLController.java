@@ -1,6 +1,7 @@
 package it.polito.tdp.lab04;
 
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 
@@ -18,9 +19,10 @@ import javafx.scene.paint.Color;
 
 public class FXMLController {
 
+	
 	private Model model; 
 	
-	private ObservableList<Corso> choiceBoxList = FXCollections.observableArrayList(model.getTuttiICorsi());
+	private ObservableList<Corso> choiceBoxList; 
 	
     @FXML
     private ResourceBundle resources;
@@ -98,10 +100,12 @@ public class FXMLController {
         assert txtResult != null : "fx:id=\"txtResult\" was not injected: check your FXML file 'Scene.fxml'.";
        assert btnReset != null : "fx:id=\"btnReset\" was not injected: check your FXML file 'Scene.fxml'.";
        
-       choiceBox.setItems(choiceBoxList);
+     
     }
     
     public void setModel(Model model) {
     	this.model = model;
+    	choiceBoxList = FXCollections.observableArrayList(model.getTuttiICorsi());
+    	choiceBox.setItems(choiceBoxList);
     }
 }
