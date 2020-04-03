@@ -27,4 +27,12 @@ public class Model {
 	public boolean inscriviStudenteACorso(Studente studente, Corso corso) {
 		return cdao.inscriviStudenteACorso(studente, corso);
 	}
+	
+	public Map<Integer,Studente> getTuttiGliStudenti() {
+		return sdao.getTuttiGliStudenti();
+	}
+	
+	public List<Corso> cercaCorsiStudente(int matricola) {
+		return cdao.cercaCorsiStudente(matricola);
+	}
 }
